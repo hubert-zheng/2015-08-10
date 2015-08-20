@@ -1,2 +1,3 @@
 mvn compile
 mvn exec:java -Dexec.mainClass="com.hand.Exam2.App"
+命令窗口telnet localhost 23456 连接socket

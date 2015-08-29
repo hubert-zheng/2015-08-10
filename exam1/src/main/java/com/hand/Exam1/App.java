@@ -46,11 +46,13 @@ class Postpdf extends Thread{
 			HttpGet get = new HttpGet("http://www.manning.com/gsmith/SampleChapter1.pdf");
 			HttpResponse response = client.execute(get);
 			HttpEntity entity = response.getEntity();
-			byte input [] = EntityUtils.toByteArray(entity);
+			byte input[] = EntityUtils.toByteArray(entity);
 			
 			FileOutputStream fos = new FileOutputStream(new File("SampleChapter1.pdf"));
-			BufferedOutputStream bos = new BufferedOutputStream(fos);
-			bos.write(input);
+			//BufferedOutputStream bos = new BufferedOutputStream(fos);
+			fos.write(input);
+			fos.flush();
+			fos.close();
 			System.out.println("SampleChapter1.pdf下载完成！");
 			//System.out.println(input.toString());
 			
